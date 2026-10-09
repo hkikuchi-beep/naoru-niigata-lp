@@ -23,7 +23,8 @@
     PIXEL_ID: '2126890407907821',                   // naoru整体 新潟院「肩こり」データセット
     LINE_URL: 'https://lin.ee/qNuV4jn',             // 新潟院LINE（広告LP用）
     WEB_URL:  'https://form.salonone.net/brands/11/shops/900000583/form/15Nb0GtBmZBP.html', // 新潟院 初回体験予約フォーム
-    TEL:      '080-8373-1332'                       // 新潟院 電話
+    TEL:      '080-8373-1332',                      // 新潟院 電話
+    CLARITY_ID: ''                                  // Microsoft ClarityのプロジェクトID（ヒートマップ・録画。空なら読み込まない）
   };
   (function (c) {
     if (!c.PIXEL_ID) return;
@@ -34,6 +35,12 @@
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', c.PIXEL_ID);
     fbq('track', 'PageView');
+  })(window.LP_CONFIG);
+  (function (c) {
+    if (!c.CLARITY_ID) return;
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",c.CLARITY_ID);
   })(window.LP_CONFIG);
 </script>
 
@@ -468,7 +475,7 @@
   </header>
 
   <!-- ===== ファーストビュー ===== -->
-  <section class="fv">
+  <section data-sec="01fv" class="fv">
     <div class="fv-hero">
       <div class="fv-ba">
         <figure><img src="img/before04.webp" alt="施術前のAI姿勢分析" width="378" height="484" fetchpriority="high"><span>施術前</span></figure>
@@ -513,7 +520,7 @@
   </section>
 
   <!-- ===== お悩み ===== -->
-  <section class="soft">
+  <section data-sec="02check" class="soft">
     <span class="sec-label">CHECK</span>
     <h2>こんな<em>肩こり</em>に<br>悩んでいませんか？</h2>
     <ul class="checks reveal">
@@ -531,7 +538,7 @@
   </section>
 
   <!-- ===== 原因 ===== -->
-  <section>
+  <section data-sec="03cause">
     <span class="sec-label">CAUSE</span>
     <h2>肩をもんでも<br><em>戻ってしまう</em>のはなぜ？</h2>
     <div class="cause-top reveal">
@@ -562,7 +569,7 @@
   </section>
 
   <!-- ===== 選ばれる理由 ===== -->
-  <section class="soft">
+  <section data-sec="04reason" class="soft">
     <span class="sec-label">REASON</span>
     <h2>NAORU整体 新潟院が<br>選ばれる<em>3つの理由</em></h2>
 
@@ -602,7 +609,7 @@
   </section>
 
   <!-- ===== 院長紹介 ===== -->
-  <section>
+  <section data-sec="05staff">
     <span class="sec-label">STAFF</span>
     <h2>院長のご紹介</h2>
     <div class="staff-card reveal">
@@ -622,7 +629,7 @@
   </section>
 
   <!-- ===== 中間CTA ===== -->
-  <section class="tint">
+  <section data-sec="06midcta" class="tint">
     <div class="offer reveal">
       <span class="offer-ribbon">Web広告をご覧の方限定</span>
       <p class="offer-menu">《新規限定》肩こり改善整体コース 60分</p>
@@ -639,7 +646,7 @@
   </section>
 
   <!-- ===== 口コミ ===== -->
-  <section class="soft">
+  <section data-sec="07voice" class="soft">
     <span class="sec-label">VOICE</span>
     <h2>新潟院に通う<br>お客様の<em>口コミ</em></h2>
     <div class="rating-box reveal">
@@ -691,7 +698,7 @@
   </section>
 
   <!-- ===== 初回の流れ ===== -->
-  <section>
+  <section data-sec="08flow">
     <span class="sec-label">FLOW</span>
     <h2>初回体験の流れ</h2>
     <ol class="flow reveal">
@@ -705,7 +712,7 @@
   </section>
 
   <!-- ===== 料金 ===== -->
-  <section class="soft">
+  <section data-sec="09price" class="soft">
     <span class="sec-label">PRICE</span>
     <h2>料金</h2>
     <table class="price-table reveal">
@@ -718,7 +725,7 @@
   </section>
 
   <!-- ===== 院内 ===== -->
-  <section>
+  <section data-sec="10salon">
     <span class="sec-label">SALON</span>
     <h2>院内の様子</h2>
     <div class="gallery reveal">
@@ -729,7 +736,7 @@
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section class="soft faq">
+  <section data-sec="11faq" class="soft faq">
     <span class="sec-label">FAQ</span>
     <h2>よくあるご質問</h2>
     <details class="reveal"><summary>本当に2,000円だけですか？追加料金はかかりますか？</summary><div class="ans">はい、初回はカウンセリング・AI姿勢分析・全身整体・セルフケア指導まで含めて2,000円（税込）です。ご本人の同意なく追加料金が発生することはありません。</div></details>
@@ -742,7 +749,7 @@
   </section>
 
   <!-- ===== アクセス ===== -->
-  <section>
+  <section data-sec="12access">
     <span class="sec-label">ACCESS</span>
     <h2>新潟駅からの道順</h2>
     <div class="route">
@@ -768,7 +775,7 @@
   </section>
 
   <!-- ===== 最終CTA ===== -->
-  <section class="final">
+  <section data-sec="13final" class="final">
     <h2>その肩こり、<br>まずは原因を知ることから。</h2>
     <div class="final-staff">
       <img src="img/staff-ogawa.webp" alt="" width="600" height="560" loading="lazy">
@@ -841,6 +848,47 @@
     var ch = /_web$/.test(pos) ? 'web' : /_line$/.test(pos) ? 'line' : 'tel';
     if (ch === 'tel') fbq('track', 'Contact', { content_name: pos });
     else fbq('track', 'Lead', { content_name: pos, content_category: ch });
+  });
+
+  // ===== 行動計測（Metaのカスタムイベント。イベントマネージャで件数を見て改善に使う） =====
+  var sent = {};
+  function ev(name, params) {
+    if (sent[name]) return;            // 1訪問1回だけ
+    sent[name] = true;
+    if (typeof window.fbq === 'function') fbq('trackCustom', name, params || {});
+    if (typeof window.clarity === 'function') clarity('event', name);
+  }
+  // スクロール深度
+  var depths = [25, 50, 75, 90];
+  window.addEventListener('scroll', function () {
+    var h = document.documentElement;
+    var pct = (h.scrollTop + innerHeight) / h.scrollHeight * 100;
+    depths.forEach(function (d) { if (pct >= d) ev('LP_Scroll' + d); });
+  }, { passive: true });
+  // セクション到達（画面に3割以上入ったら）
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting) { ev('LP_Sec' + en.target.getAttribute('data-sec')); so.unobserve(en.target); }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('[data-sec]').forEach(function (el) { so.observe(el); });
+  }
+  // 滞在時間（タブが表示されている時間のみ）
+  var shown = 0;
+  setInterval(function () {
+    if (document.visibilityState !== 'visible') return;
+    shown++;
+    [10, 30, 60].forEach(function (t) { if (shown >= t) ev('LP_Time' + t + 's'); });
+  }, 1000);
+  // FAQで開かれた質問
+  document.querySelectorAll('.faq details').forEach(function (d, i) {
+    d.addEventListener('toggle', function () { if (d.open) ev('LP_FAQ' + (i + 1)); });
+  });
+  // 予約ボタンの位置別クリック（Leadとは別に位置ごとの件数を見る）
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-cta]');
+    if (a) ev('LP_Click_' + a.getAttribute('data-cta'));
   });
 
   // 口コミまで読んだ人を記録（予約数が少ないうちの補助シグナル）
