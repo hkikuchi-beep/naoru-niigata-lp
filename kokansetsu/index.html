@@ -457,6 +457,28 @@
   .js .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } }
 
+
+  /* ===== 口コミダイジェスト ===== */
+  .qv { padding: 22px 20px 26px; background: #fffaf2; border-top: 1px solid #f3e4c8; border-bottom: 1px solid #f3e4c8; }
+  .qv-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .qv-head b { font-size: 30px; font-weight: 900; color: var(--brand-deep); line-height: 1; }
+  .qv-head .stars { font-size: 15px; }
+  .qv-src { font-size: 11px; color: var(--ink-sub); line-height: 1.4; }
+  .qv-list { display: grid; gap: 8px; }
+  .qv-item { background: #fff; border-radius: 10px; padding: 10px 12px; border: 1px solid #f0e2c6; }
+  .qv-item p { margin: 0 0 4px; font-size: 14px; font-weight: 700; line-height: 1.6; }
+  .qv-item span { font-size: 11px; color: var(--ink-sub); }
+  .qv-more { display: block; text-align: right; margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--brand); text-decoration: none; }
+  /* ===== たたみ表示 ===== */
+  .fold-lead { margin: 0 0 14px; }
+  .fold { background: #fff; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; }
+  .fold summary { list-style: none; cursor: pointer; padding: 14px 44px 14px 16px; position: relative; font-weight: 700; font-size: 15px; }
+  .fold summary::-webkit-details-marker { display: none; }
+  .fold summary::after { content: "+"; position: absolute; right: 16px; top: 10px; font-size: 22px; color: var(--brand); transition: transform .2s; }
+  .fold[open] summary::after { transform: rotate(45deg); }
+  .fold-body { padding: 4px 16px 16px; }
+  .fold .price-table { box-shadow: none; border: 1px solid var(--line); }
+
   @media (max-width: 360px) {
     .fv h1 { font-size: 23px; }
     .fv h1 .big { font-size: 27px; }
@@ -505,10 +527,10 @@
       </div>
 
       <div class="cta-group">
-        <a class="btn btn-web btn-shine btn-main js-web" href="#" data-cta="fv_web"><span class="txt">空いている日時を見る<small>2,000円で予約・24時間受付</small></span></a>
+        <a class="btn btn-web btn-shine btn-main js-web" href="#" data-cta="fv_web"><span class="txt">空いている日時を見る<small>2,000円・空き状況をその場で確認</small></span></a>
         <a class="btn btn-line js-line" href="#" data-cta="fv_line"><span class="txt">LINEで相談・予約する</span></a>
       </div>
-      <ul class="assure"><li>しつこい勧誘なし</li><li>前日18時まで変更OK</li><li>男性も歓迎</li></ul>
+      <ul class="assure"><li>しつこい勧誘なし</li><li>前日18時まで変更OK</li><li>空き状況をすぐ確認できる</li></ul>
       <p class="cta-tel">お電話の方は <a class="js-tel" href="#" data-cta="fv_tel"><span class="js-tel-text"></span></a>（10:00〜20:00）</p>
 
       <div class="fv-badges">
@@ -517,6 +539,16 @@
         <div class="badge"><b>徒歩5分</b><span>新潟駅<br>南口から</span></div>
       </div>
     </div>
+  </section>
+
+  <!-- ===== 口コミ（ダイジェスト） ===== -->
+  <section data-sec="01bqv" class="qv">
+    <div class="qv-head"><b>4.86</b><span class="stars">★★★★★</span><span class="qv-src">ホットペッパービューティー<br>口コミ平均（14件）</span></div>
+    <div class="qv-list">
+      <div class="qv-item"><p>「確実に、通うたびに身体が変わっていくのを感じています。」</p><span>リーコさん（60代・女性・パート）</span></div>
+      <div class="qv-item"><p>「身体の柔軟性が確実に改善していることを実感できる施術と思います。」</p><span>クレンペラーさん（50代・男性・会社員）</span></div>
+    </div>
+    <a class="qv-more" href="#voice">口コミをもっと見る ↓</a>
   </section>
 
   <!-- ===== お悩み ===== -->
@@ -640,13 +672,13 @@
       </div>
     </div>
     <div class="cta-group">
-      <a class="btn btn-web btn-shine btn-main js-web" href="#" data-cta="mid_web"><span class="txt">空いている日時を見る<small>2,000円で予約・24時間受付</small></span></a>
+      <a class="btn btn-web btn-shine btn-main js-web" href="#" data-cta="mid_web"><span class="txt">空いている日時を見る<small>2,000円・空き状況をその場で確認</small></span></a>
       <a class="btn btn-line js-line" href="#" data-cta="mid_line"><span class="txt">LINEで相談・予約する</span></a>
     </div>
   </section>
 
   <!-- ===== 口コミ ===== -->
-  <section data-sec="07voice" class="soft">
+  <section data-sec="07voice" id="voice" class="soft">
     <span class="sec-label">VOICE</span>
     <h2>新潟院に通う<br>お客様の<em>口コミ</em></h2>
     <div class="rating-box reveal">
@@ -661,7 +693,7 @@
       <div class="voice reveal">
         <div class="voice-meta"><span><b>リーコさん</b>（60代・女性・パート）</span><span class="stars">★★★★★</span></div>
         <h3>骨盤周りの歪みに、きちんとアプローチしてもらえる</h3>
-        <p>あちこち行ってみてはその場限りの整体を体験して来ましたが、こちらは身体の歪みや痛みにきちんとアプローチして、確実に矯正されている。骨盤周りが歪んだままの状態が続いていましたが、通うたびに身体が変わっていくのを感じています。（一部抜粋）</p>
+        <p>あちこち行ってみては、その場限りの整体を体験して来ましたが、こちらは身体の歪みや、痛みにきちんとアプローチして、確実に矯正されている。私の場合は、骨盤周りが歪んだままの状態が続いていたこともあり、完全にすぐに快復というわけにはいかないのはわかっていましたが、確実に、通うたびに身体が変わっていくのを感じています。（一部抜粋）</p>
         <p class="voice-date">2026/9/5 投稿</p>
       </div>
       <div class="voice reveal">
@@ -697,42 +729,36 @@
     <p class="note center">※国家資格者の割合・店舗数はNAORU整体グループ全体の数値です。</p>
   </section>
 
-  <!-- ===== 初回の流れ ===== -->
-  <section data-sec="08flow">
-    <span class="sec-label">FLOW</span>
-    <h2>初回体験の流れ</h2>
-    <ol class="flow reveal">
+  <!-- ===== 初回の流れ・料金 ===== -->
+  <section data-sec="08flowprice">
+    <span class="sec-label">FLOW &amp; PRICE</span>
+    <h2>初回の流れ・料金</h2>
+    <p class="fold-lead">初回は<b>約60分</b>。カウンセリング → AI姿勢分析 → 全身整体 → 変化の確認の順で進みます。</p>
+    <details class="fold">
+      <summary>初回体験の流れをくわしく見る</summary>
+      <div class="fold-body">
+        <ol class="flow">
       <li><h3>カウンセリング<span class="time">約10分</span></h3><p>股関節のどこが・いつから・どんな動きでつらいか、お仕事や生活習慣などを伺います。</p>
         <div class="flow-img"><img src="../img/counseling.webp" alt="カウンセリングの様子" width="800" height="640" loading="lazy"></div></li>
       <li><h3>AI姿勢分析<span class="time">約5分</span></h3><p>正面・側面から撮影し、骨盤や脚のバランスを数値で確認。股関節に負担がかかる原因をわかりやすくご説明します。</p></li>
       <li><h3>全身整体<span class="time">約30分</span></h3><p>分析結果にもとづき、骨盤・股関節まわりを中心に、背骨やひざまで全身を整えます。</p></li>
       <li><h3>変化の確認とセルフケア<span class="time">約10分</span></h3><p>施術後にもう一度分析し、前後を比較。ご自宅でできるストレッチもお伝えします。</p></li>
     </ol>
-    <p class="note">※所要時間は目安です。初回は全体で60分前後を見ておいてください。</p>
-  </section>
-
-  <!-- ===== 料金 ===== -->
-  <section data-sec="09price" class="soft">
-    <span class="sec-label">PRICE</span>
-    <h2>料金</h2>
-    <table class="price-table reveal">
+        <p class="note">※所要時間は目安です。</p>
+      </div>
+    </details>
+    <details class="fold">
+      <summary>料金表を見る</summary>
+      <div class="fold-body">
+        <table class="price-table">
       <tr class="hl"><th>《新規限定》股関節改善整体コース 60分<br><small>AI姿勢分析つき・Web広告限定</small></th><td><s>15,400円</s>2,000円</td></tr>
       <tr><th>全身整体コース（AI姿勢分析つき）</th><td>15,400円</td></tr>
       <tr><th>猫背矯正コース</th><td>6,600円</td></tr>
       <tr><th>骨盤矯正コース</th><td>6,600円</td></tr>
     </table>
-    <p class="note">※表示価格はすべて税込です。<br>※2回目以降は、お体の状態に合わせて月額プラン（縛りなし・いつでも解約可）などをご案内します。無理におすすめすることはありません。</p>
-  </section>
-
-  <!-- ===== 院内 ===== -->
-  <section data-sec="10salon">
-    <span class="sec-label">SALON</span>
-    <h2>院内の様子</h2>
-    <div class="gallery reveal">
-      <figure class="full"><img src="../img/room1.webp" alt="新潟院の受付・待合スペース" width="900" height="675" loading="lazy"><figcaption>受付・待合スペース</figcaption></figure>
-      <figure><img src="../img/room2.webp" alt="新潟院の施術ベッド" width="900" height="675" loading="lazy"><figcaption>施術スペース</figcaption></figure>
-      <figure><img src="../img/entrance.webp" alt="新潟院の入口" width="900" height="675" loading="lazy"><figcaption>マルヤマビル1階の入口</figcaption></figure>
-    </div>
+        <p class="note">※表示価格はすべて税込です。<br>※2回目以降は、お体の状態に合わせて月額プラン（縛りなし・いつでも解約可）などをご案内します。無理におすすめすることはありません。</p>
+      </div>
+    </details>
   </section>
 
   <!-- ===== FAQ ===== -->
@@ -793,10 +819,10 @@
       <p class="offer-limit">⚠ 1日の体験枠には限りがあります</p>
     </div>
     <div class="cta-group">
-      <a class="btn btn-web btn-shine btn-main js-web" href="#" data-cta="final_web"><span class="txt">空いている日時を見る<small>2,000円で予約・24時間受付</small></span></a>
+      <a class="btn btn-web btn-shine btn-main js-web" href="#" data-cta="final_web"><span class="txt">空いている日時を見る<small>2,000円・空き状況をその場で確認</small></span></a>
       <a class="btn btn-line js-line" href="#" data-cta="final_line"><span class="txt">LINEで相談・予約する</span></a>
     </div>
-    <ul class="assure"><li>しつこい勧誘なし</li><li>前日18時まで変更OK</li><li>男性も歓迎</li></ul>
+    <ul class="assure"><li>しつこい勧誘なし</li><li>前日18時まで変更OK</li><li>空き状況をすぐ確認できる</li></ul>
     <p class="cta-tel">お電話の方は <a class="js-tel" href="#" data-cta="final_tel"><span class="js-tel-text"></span></a>（10:00〜20:00）</p>
   </section>
 
